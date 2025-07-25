@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday, Manahil!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Lora:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <!-- Font Awesome CDN for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        /* CSS - Theme changed to Black with Moon Background and Icons */
+
+        /* 1. Root Variables and Global Styles */
+        :root {
+            --primary-dark: #000000; /* True black theme */
+            --secondary-dark: #1a1a3a;
+            --light-glow: #e0e6f1;
+            --accent-gold: #1798ca;
+            --accent-purple: #1798ca;
+            --font-heading: 'Cinzel', serif;
+            --font-body: 'Lora', serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--primary-dark);
+            /* === UPDATED BACKGROUND IMAGE === */
+            background-image: url('https://i.postimg.cc/YS8wZzTd/Whats-App-Image-2025-07-25-at-23-43-42-767ea8ed.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* Makes the background stay in place */
+            color: var(--light-glow);
+            font-family: var(--font-body);
+            overflow-x: hidden;
+        }
+
+        /* 2. Parallax and Layers Removed - Replaced by fixed background */
+        /* The parallax-wrapper is now just a container for the hero section */
+        .hero-wrapper {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        /* 3. Hero Section and Countdown Timer */
+        .hero h1 {
+            font-family: var(--font-heading);
+            font-size: 5rem;
+            color: var(--light-glow);
+            text-shadow: 0 0 15px var(--accent-gold), 0 0 25px var(--accent-gold), 0 0 50px #fff;
+            animation: fadeInGlow 3s ease-in-out;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            color: var(--accent-purple);
+            text-shadow: 1px 1px 5px #000;
+            animation: fadeIn 4s ease-in-out;
+            margin-bottom: 40px;
+        }
+        
+        #countdown {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-family: var(--font-heading);
+            color: var(--light-glow);
+            text-shadow: 0 0 10px var(--accent-purple);
+            animation: fadeIn 5s ease-in-out;
+        }
+
+        #countdown > div {
+            background: rgba(0, 0, 0, 0.4); /* Darker background for readability */
+            padding: 15px 25px;
+            border-radius: 10px;
+            border: 1px solid var(--accent-purple);
+            box-shadow: 0 0 20px rgba(188, 160, 220, 0.3);
+            backdrop-filter: blur(8px);
+        }
+
+        #countdown span {
+            display: block;
+            font-size: 2.5rem;
+        }
+
+        #countdown div > div {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            opacity: 0.8;
+        }
+
+        @keyframes fadeInGlow {
+            from { opacity: 0; transform: translateY(20px) scale(0.9); text-shadow: 0 0 0px var(--accent-gold); }
+            to { opacity: 1; transform: translateY(0) scale(1); text-shadow: 0 0 15px var(--accent-gold), 0 0 25px var(--accent-gold), 0 0 50px #fff; }
+        }
+
+        /* 4. Content Sections Styling */
+        .content-wrapper {
+            /* Removed gradient, now just a spacer */
+            padding: 1px 0; /* Prevents margin collapse */
+            position: relative;
+            z-index: 10;
+        }
+
+        .content-box {
+            max-width: 850px;
+            margin: 80px auto;
+            padding: 50px;
+            background: rgba(0, 0, 0, 0.65); /* Darker for better contrast on moon bg */
+            border: 1px solid var(--accent-purple);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px 0 rgba(188, 160, 220, 0.2);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+        }
+        .content-box:first-child { margin-top: 100px; }
+        .content-box:last-child { margin-bottom: 100px; }
+
+        .content-box.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .content-box h2 {
+            font-family: var(--font-heading);
+            font-size: 3.5rem;
+            color: var(--accent-gold);
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+        }
+
+        .content-box p {
+            font-size: 1.2rem;
+            line-height: 1.9;
+            text-align: center;
+        }
+
+        /* Icon Styling */
+        .fa-moon, .fa-star {
+            color: var(--accent-gold);
+            margin-left: 15px;
+            font-size: 2.5rem;
+            text-shadow: 0 0 15px var(--accent-gold);
+            vertical-align: middle;
+        }
+        .fa-star {
+          font-size: 1rem;
+          margin: 0 10px;
+        }
+        
+        /* 5. Picture Placeholder and Gallery */
+        .picture-placeholder-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+        }
+        
+        #picture-placeholder {
+            width: 250px;
+            height: 250px;
+            border: 3px dashed var(--accent-purple);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: background-color 0.3s, border-color 0.3s;
+            overflow: hidden;
+            background-color: rgba(255,255,255,0.05);
+            background-size: cover;
+            background-position: center;
+        }
+
+        #picture-placeholder:hover {
+            background-color: rgba(188, 160, 220, 0.2);
+            border-color: var(--accent-gold);
+        }
+        
+        #picture-placeholder span, .gallery-item span {
+            color: var(--light-glow);
+            font-family: var(--font-body);
+            text-align: center;
+            padding: 20px;
+            pointer-events: none;
+        }
+        
+        .hidden-upload { display: none; }
+
+        .gallery-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            padding: 20px 0;
+        }
+        
+        .gallery-item {
+            border-radius: 15px;
+            border: 2px dashed var(--accent-purple);
+            height: 350px;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255,255,255,0.05);
+            background-size: cover;
+            background-position: center;
+            overflow: hidden;
+            transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
+        }
+        .gallery-item:hover { transform: translateY(-10px); border-color: var(--accent-gold); }
+
+        /* 6. Closing Message */
+        .closing-section h3 {
+            font-family: var(--font-heading);
+            font-size: 4.5rem;
+            color: var(--accent-gold);
+            text-shadow: 0 0 20px var(--accent-gold);
+        }
+        
+        /* 7. Footer */
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: #000000;
+            color: var(--accent-purple);
+            font-size: 1rem;
+            position: relative;
+            z-index: 10;
+            border-top: 1px solid var(--accent-purple);
+        }
+        
+        /* 8. MOBILE UI OPTIMIZATIONS */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 3.8rem; }
+            .hero p { font-size: 1.3rem; }
+            #countdown span { font-size: 2.2rem; }
+            .content-box { padding: 40px; margin: 60px auto; }
+            .content-box h2 { font-size: 2.8rem; }
+            .closing-section h3 { font-size: 3rem; }
+            .gallery-container { gap: 20px; }
+            .fa-moon { font-size: 2rem; }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.5rem; line-height: 1.2; }
+            .hero p { font-size: 1.1rem; margin-bottom: 30px; }
+            #countdown { flex-wrap: wrap; gap: 15px; width: 100%; }
+            #countdown > div { padding: 10px; flex-basis: calc(50% - 10px); text-align: center; }
+            #countdown span { font-size: 1.8rem; }
+            #countdown div > div { font-size: 0.7rem; letter-spacing: 1px; }
+            .content-wrapper { padding: 1px 10px; }
+            .content-box { padding: 25px 20px; margin: 40px auto; }
+            .content-box h2 { font-size: 2rem; }
+            .content-box p { font-size: 1rem; line-height: 1.7; }
+            #picture-placeholder { width: 200px; height: 200px; }
+            .gallery-container { grid-template-columns: 1fr; gap: 20px; }
+            .gallery-item { height: 300px; }
+            .closing-section h3 { font-size: 2.2rem; }
+            footer { padding: 20px; font-size: 0.9rem; }
+            .fa-moon { font-size: 1.8rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Main hero section wrapper -->
+    <div class="hero-wrapper">
+        <section class="hero">
+            <h1>Manahil's Birthday</h1>
+            <p>A celestial celebration on August 14th</p>
+            <div id="countdown">
+                <div><span id="days">00</span><div>Days</div></div>
+                <div><span id="hours">00</span><div>Hours</div></div>
+                <div><span id="minutes">00</span><div>Minutes</div></div>
+                <div><span id="seconds">00</span><div>Seconds</div></div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Main content area -->
+    <div class="content-wrapper">
+        <section id="message" class="content-section">
+            <div class="content-box fade-in">
+                <h2>A Wish for the Selenophile<i class="fas fa-moon"></i></h2>
+                <p>
+                     Happy Birthday Manahil. There's something about you that feels like moonlight—the way you glow without trying, how you make even ordinary moments feel magical. You have this quiet radiance, like the moon on a clear night, soft but impossible to ignore.
+
+I hope this year brings you the kind of peace you find in those rare, perfect nights—when the sky is endless, the air is still, and the moon shines just for you. 
+
+ Keep shining, lovely girl. The night sky wouldn't be half as beautiful without you in it.
+
+Happy birthday, sweet selenophile. 🌙
+
+
+                </p>
+            </div>
+        </section>
+
+        <section id="picture" class="content-section">
+            <div class="content-box fade-in">
+                <h2><i class="fas fa-star"></i>A Star is Born<i class="fas fa-star"></i></h2>
+                <div class="picture-placeholder-wrapper">
+                    <input type="file" id="upload-input" class="hidden-upload" accept="image/*">
+                    <div id="picture-placeholder">
+                        <span>Click to upload a picture of Manahil</span>
+                    </div>
+                    <p>For the one who shines the brightest.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="gallery" class="content-section">
+            <div class="content-box fade-in">
+                <h2>Glimpses of Selenophile<i class="fas fa-moon"></i></h2>
+                <div class="gallery-container">
+                    <input type="file" id="gallery-upload-1" class="hidden-upload" accept="image/*">
+                    <div class="gallery-item" id="gallery-placeholder-1"><span>Upload Moon Pic 1</span></div>
+                    <input type="file" id="gallery-upload-2" class="hidden-upload" accept="image/*">
+                    <div class="gallery-item" id="gallery-placeholder-2"><span>Upload Moon Pic 2</span></div>
+                    <input type="file" id="gallery-upload-3" class="hidden-upload" accept="image/*">
+                    <div class="gallery-item" id="gallery-placeholder-3"><span>Upload Moon Pic 3</span></div>
+                    <input type="file" id="gallery-upload-4" class="hidden-upload" accept="image/*">
+                    <div class="gallery-item" id="gallery-placeholder-4"><span>Upload Moon Pic 4</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="closing-section content-section">
+            <div class="content-box fade-in">
+                 <h3><i class="fas fa-star"></i>Always Keep Smiiling-Your Glow is as timeless as the moon <i class="fas fa-star"></i></h3>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><i class="fas fa-moon" style="font-size: 1rem; margin-right: 10px;"></i>Crafted under the stars for Manahil's special day.<i class="fas fa-moon" style="font-size: 1rem; margin-left: 10px;"></i></p>
+    </footer>
+
+      <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Countdown timer (unchanged)
+            const countdown = () => {
+                const countDate = new Date('August 14, ' + new Date().getFullYear() + ' 00:00:00').getTime();
+                const now = new Date().getTime();
+                const gap = countDate - now;
+
+                if (gap > 0) {
+                    const second = 1000, minute = second * 60, hour = minute * 60, day = hour * 24;
+                    document.getElementById('days').innerText = String(Math.floor(gap / day)).padStart(2, '0');
+                    document.getElementById('hours').innerText = String(Math.floor((gap % day) / hour)).padStart(2, '0');
+                    document.getElementById('minutes').innerText = String(Math.floor((gap % hour) / minute)).padStart(2, '0');
+                    document.getElementById('seconds').innerText = String(Math.floor((gap % minute) / second)).padStart(2, '0');
+                } else {
+                    document.getElementById('countdown').innerHTML = "<div style='text-align:center; width:100%; font-size: 2rem;'>Happy Birthday!</div>";
+                    document.querySelector('.hero h1').innerText = "Happy Birthday Manahil!";
+                }
+            };
+            setInterval(countdown, 1000);
+
+            // Fade-in animations (unchanged)
+            const fadeInElements = document.querySelectorAll('.fade-in');
+            const observer = new IntersectionObserver((entries, obs) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        obs.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1 });
+            fadeInElements.forEach(el => observer.observe(el));
+
+            // PRE-LOAD IMAGES WITH YOUR LINKS
+            const profilePic = document.getElementById('picture-placeholder');
+            profilePic.style.backgroundImage = "url('https://i.postimg.cc/05JM7zTz/Whats-App-Image-2025-07-26-at-00-19-55-e4475ef1.jpg')";
+            profilePic.innerHTML = '';
+            profilePic.style.borderStyle = 'solid';
+
+            // Gallery images
+            const galleryImages = [
+                'https://i.postimg.cc/QN6Nzhcp/Whats-App-Image-2025-07-26-at-00-09-31-40abd8c4.jpg',
+                'https://i.postimg.cc/CLgyJ2Qj/Whats-App-Image-2025-07-24-at-11-38-50-55627edf.jpg',
+                'https://i.postimg.cc/3JFwZmnx/Whats-App-Image-2025-07-26-at-00-21-29-0e0df024.jpg',
+                'https://i.postimg.cc/6QDbq2sd/Whats-App-Image-2025-07-24-at-11-38-49-ffd825f6.jpg'
+            ];
+
+            galleryImages.forEach((imgUrl, index) => {
+                const placeholder = document.getElementById(`gallery-placeholder-${index+1}`);
+                placeholder.style.backgroundImage = `url('${imgUrl}')`;
+                placeholder.innerHTML = '';
+                placeholder.style.borderStyle = 'solid';
+            });
+
+            // Remove all upload functionality
+            document.querySelectorAll('.hidden-upload').forEach(el => el.remove());
+        });
+    </script>
+</body>
+</html>
+</body>
+</html>
